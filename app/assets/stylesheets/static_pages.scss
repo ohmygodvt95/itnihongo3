@@ -1,0 +1,28 @@
+@import "toastr";
+
+#toast-container {
+  top: 70px;
+}
+
+.breadcrumb {
+  background: transparent;
+  font-size: 14px;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.pmd-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.login-card {
+  .col-sm-4 {
+    padding: 0;
+    margin-top: 100px;
+  }
+
+  .panel {
+    margin-bottom: 0;
+  }
+}

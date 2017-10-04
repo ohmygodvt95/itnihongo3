@@ -1,0 +1,58 @@
+<% provide :title, "パスワードを変更する"  %>
+
+<div class="login-card">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4  pmd-z-depth-1">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h1 class="text-center text-capitalize">
+              パスワードを変更する
+            </h1>
+            <hr>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name),
+                         html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+              <%= f.hidden_field :reset_password_token %>
+
+              <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                <%= f.label "パスワード",
+                            class: "control-label pmd-input-group-label" %>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="material-icons md-dark pmd-sm">lock_outline</i>
+                  </div>
+                  <%= f.password_field :password, autofocus: true, class: "form-control",
+                                       autocomplete: "off", required: true %>
+                </div>
+              </div>
+
+              <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                <%= f.label "パスワード確認",
+                            class: "control-label pmd-input-group-label" %>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="material-icons md-dark pmd-sm">lock_outline</i>
+                  </div>
+                  <%= f.password_field :password_confirmation, autofocus: true, class: "form-control",
+                    autocomplete: "off", required: true %>
+                </div>
+              </div>
+
+              <div class="actions">
+                <br>
+                <%= f.submit "パスワードを変更する", class: "btn btn-block btn-primary" %>
+              </div>
+            <% end %>
+
+            <div class="text-center">
+              <hr>
+              <%= render "devise/shared/links" %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
