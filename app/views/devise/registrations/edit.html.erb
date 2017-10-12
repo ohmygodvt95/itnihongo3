@@ -1,43 +1,98 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% provide :title, "サインアップ"  %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="login-card">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <br>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2 class="text-center">プロファイル編集</h2>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+              <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                <%= f.label "Eメール", class: "control-label pmd-input-group-label" %>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="material-icons md-dark pmd-sm">perm_identity</i>
+                  </div>
+                  <%= f.email_field :email, autofocus: true, class: "form-control", required: true %>
+                </div>
+              </div>
+
+              <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                <%= f.label "ユーザー名", class: "control-label pmd-input-group-label" %>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="material-icons md-dark pmd-sm">perm_identity</i>
+                  </div>
+                  <%= f.text_field :name, autofocus: true, class: "form-control", required: true %>
+                </div>
+              </div>
+
+              <div class="field">
+                <%= f.label "アバター" %><br />
+                <%= f.file_field :avatar, autofocus: true %>
+                <br>
+                <img src="<%= current_user.avatar.thumb.url %>" alt="" class="img-responsive center-block img-circle pmd-z-depth">
+              </div>
+
+              <div class="field">
+                <%= f.label "カバー" %><br />
+                <%= f.file_field :cover, autofocus: true %>
+                <br>
+                <img src="<%= current_user.cover.thumb.url %>" alt="" class="img-responsive center-block">
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+              <hr>
+              <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                <%= f.label "パスワード", class: "control-label pmd-input-group-label" %>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="material-icons md-dark pmd-sm">lock_outline</i>
+                  </div>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                <%= f.label "パスワード確認", class: "control-label pmd-input-group-label" %>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="material-icons md-dark pmd-sm">lock_outline</i>
+                  </div>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                <%= f.label "現在のパスワード", class: "control-label pmd-input-group-label" %>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="material-icons md-dark pmd-sm">lock_outline</i>
+                  </div>
+                  <%= f.password_field :current_password, autocomplete: "off", class: "form-control", required: true %>
+                </div>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "アップデイト", class: "btn btn-success btn-block" %>
+              </div>
+            <% end %>
+
+            <h3>アカウントをキャンセルする</h3>
+
+            <p>不幸？ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "本気ですか？" }, method: :delete, class: "btn btn-danger btn-block" %></p>
+
+            <%= link_to "Back", :back %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
