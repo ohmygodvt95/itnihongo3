@@ -1,0 +1,35 @@
+<!--Timeline Menu for Large Screens-->
+<div class="timeline-nav-bar hidden-sm hidden-xs">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="profile-info">
+        <img src="<%= @user.avatar.thumb.url %>" alt="" class="img-responsive profile-photo" />
+      </div>
+    </div>
+    <div class="col-md-9">
+      <ul class="list-inline profile-menu">
+        <li><a href="<%= user_path @user %>" ><%= @user.name %></a></li>
+        <li><%= link_to "タイムライン", @user, class: "active" %></li>
+        <li><a href="timeline-about.html">私について</a></li>
+      </ul>
+    </div>
+  </div>
+</div><!--Timeline Menu for Large Screens End-->
+
+<!--Timeline Menu for Small Screens-->
+<div class="navbar-mobile hidden-lg hidden-md">
+  <div class="profile-info">
+    <img src="<%= @user.avatar.thumb.url %>" alt="" class="img-responsive profile-photo" />
+    <h4><%= @user.name %></h4>
+    <p class="text-muted"><%= @user.email %></p>
+  </div>
+  <div class="mobile-menu">
+    <ul class="list-inline">
+      <li><a href="<%= user_path @user %>" class="active"><%= @user.name %></a></li>
+      <li><a href="timline.html">タイムライン</a></li>
+      <li><a href="timeline-about.html">私について</a></li>
+    </ul>
+  </div>
+</div><!--Timeline Menu for Small Screens End-->
+
+</div>

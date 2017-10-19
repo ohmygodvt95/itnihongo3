@@ -38,16 +38,20 @@
                          class="profile-photo-sm pull-left"/>
                     <div class="user">
                       <h6>
-                        <%= link_to post.user.name, "#", class: "profile-link" %>
+                        <%= link_to post.user.name, post.user, class: "profile-link" %>
                       </h6>
-                      <a class="text-green" href="#">Friend</a>
+
                     </div>
+                    <hr>
+                    <p><%= post.content %></p>
                   </div>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
+        <hr>
+        <%= paginate @posts %>
       </div>
     </div>
   </div>

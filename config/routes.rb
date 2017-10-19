@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/pages/:act" => "static_pages#show"
 
   resources :posts
+  resources :users, only: :show
 end

@@ -4,7 +4,7 @@
     <div class="profile-card">
       <img src="<%= current_user.avatar.thumb.url %>" alt="user" class="profile-photo"/>
       <h5>
-        <%= link_to current_user.name, "#", class: "text-white" %>
+        <%= link_to current_user.name, current_user, class: "text-white" %>
       </h5>
       <h5 class="text-white"><%= current_user.posts.size %> posts</h5>
     </div><!--profile card ends-->
@@ -13,7 +13,7 @@
         <div><a href="<%= root_path %>">ホーム</a></div>
       </li>
       <li><i class="fa fa fa-clock-o"></i>
-        <div><%= link_to "タイムライン", "#" %></div>
+        <div><%= link_to "タイムライン", current_user %></div>
       </li>
     </ul>
   </div>
