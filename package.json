@@ -2,6 +2,7 @@
   "name": "Itnihongo3",
   "private": true,
   "dependencies": {
+    "masonry-layout": "^4.2.0",
     "propellerkit": "^1.1.0"
   }
 }

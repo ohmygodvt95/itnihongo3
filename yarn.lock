@@ -6,9 +6,42 @@ bootstrap@^3.0.0:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
 
+desandro-matches-selector@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/desandro-matches-selector/-/desandro-matches-selector-2.0.2.tgz#717beed4dc13e7d8f3762f707a6d58a6774218e1"
+
+ev-emitter@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ev-emitter/-/ev-emitter-1.1.1.tgz#8f18b0ce5c76a5d18017f71c0a795c65b9138f2a"
+
+fizzy-ui-utils@^2.0.0:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/fizzy-ui-utils/-/fizzy-ui-utils-2.0.5.tgz#d72debc74d2c9d272dbcbb7b001707897f6c3210"
+  dependencies:
+    desandro-matches-selector "^2.0.0"
+
+get-size@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/get-size/-/get-size-2.0.2.tgz#555ea98ab8732e0c021e9e23e2219adcbe398e98"
+
 jquery@^1.9.0:
   version "1.12.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.12.4.tgz#01e1dfba290fe73deba77ceeacb0f9ba2fec9e0c"
+
+masonry-layout@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/masonry-layout/-/masonry-layout-4.2.0.tgz#43835c6b6e0d72eff2c31a118c8000cccc4ab965"
+  dependencies:
+    get-size "^2.0.2"
+    outlayer "^2.1.0"
+
+outlayer@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/outlayer/-/outlayer-2.1.1.tgz#29863b6de10ea5dadfffcadfa0d728907387e9a2"
+  dependencies:
+    ev-emitter "^1.0.0"
+    fizzy-ui-utils "^2.0.0"
+    get-size "^2.0.2"
 
 propellerkit@^1.1.0:
   version "1.1.0"

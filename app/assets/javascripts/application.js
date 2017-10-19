@@ -14,5 +14,6 @@
 //= require jquery
 //= require bootstrap/dist/js/bootstrap.min
 //= require propellerkit/dist/js/propeller.min
+//= require masonry-layout/dist/masonry.pkgd.min
 //= require toastr
 //= require_self

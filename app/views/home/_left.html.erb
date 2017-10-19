@@ -1,0 +1,20 @@
+<div class="col-sm-3 static" id="static">
+  <div id="sidebar">
+    <br>
+    <div class="profile-card">
+      <img src="<%= current_user.avatar.thumb.url %>" alt="user" class="profile-photo"/>
+      <h5>
+        <%= link_to current_user.name, "#", class: "text-white" %>
+      </h5>
+      <h5 class="text-white"><%= current_user.posts.size %> posts</h5>
+    </div><!--profile card ends-->
+    <ul class="nav-news-feed">
+      <li><i class="fa fa-newspaper-o"></i>
+        <div><a href="<%= root_path %>">ホーム</a></div>
+      </li>
+      <li><i class="fa fa fa-clock-o"></i>
+        <div><%= link_to "タイムライン", "#" %></div>
+      </li>
+    </ul>
+  </div>
+</div>

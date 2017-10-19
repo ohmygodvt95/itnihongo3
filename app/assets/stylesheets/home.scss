@@ -109,4 +109,34 @@
   padding: 0!important;
 }
 
+body .wrapper{
+  padding-top: 50px;
+
+  .media-grid {
+    margin-bottom: 20px;
+    border: 1px solid #F8F8F8;
+    border-radius: 5px;
+    background-color: #F8F8F8;
+    padding: 10px;
+
+    img {
+      border-radius: 3px;
+    }
+  }
+
+  .js-masonry .col-sm-6{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .text-white{
+    color: #fff;
+  }
+
+
+  hr{
+    background-color: lightslategray;
+  }
+}
+
 
