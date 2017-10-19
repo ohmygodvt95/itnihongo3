@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     root "home#index"
   end
   get "/pages/:act" => "static_pages#show"
+
+  resources :posts
 end
