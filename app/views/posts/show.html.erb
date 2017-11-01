@@ -37,6 +37,39 @@
             <div class="post-text">
               <p><%= @post.content %></p>
             </div>
+            <div class="line-divider"></div>
+            <%= paginate @comments %>
+            <% @comments.each do |comment| %>
+              <div class="post-comment" id="comments">
+                <img src="<%= comment.user.avatar.thumb.url %>" alt="" class="profile-photo-sm" />
+
+                <p>
+                  <a href="<%= user_path comment.user %>" class="profile-link"><%= comment.user.name %> </a>
+                  <i class="em em-laughing"></i>
+                  <%= comment.body %>
+                  <br>
+                  <small>
+                    <%= time_ago_in_words comment.updated_at %> ago
+                    <% if comment.user_id == current_user.id %> |
+                      <%= link_to post_comment_path(@post, comment), method: :delete do %>
+                        <i class=" fa fa-trash"></i>
+                      <% end %>
+                    <% end %>
+                  </small>
+                </p>
+
+              </div>
+            <% end %>
+            <hr>
+            <% if user_signed_in? %>
+              <%= form_for :comment, url: post_comments_path(@post) do |f| %>
+                <div class="post-comment" id="comment">
+                  <img src="<%= current_user.avatar.thumb.url %>" alt="" class="profile-photo-sm" />
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.text_field :body, class: "form-control", placeholder: "コメントを投稿", required: true %>
+                </div>
+              <% end %>
+            <% end %>
             <script type="text/javascript" charset="utf-8">
               jQuery(document).ready(function($) {
                 $('#input').keypress(function (event) {

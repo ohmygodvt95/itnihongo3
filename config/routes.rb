@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   get "/pages/:act" => "static_pages#show"
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :users, only: :show
   resources :search, only: :index
 end

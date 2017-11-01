@@ -12,16 +12,18 @@
       <%= link_to t("app_name"), root_path, class: "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <form class="search-form navbar-form navbar-left" method="get" id="searchform"
-            action="<%= search_index_path %>">
-        <div class="form-group">
-          <input class="form-control" type="text" size="put_a_size_here"
-                 name="query" id="search" title="Search"
-                 placeholder="what are you looking for"
-                 autocomplete="off"/>
-        </div>
-        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-      </form>
+      <% if user_signed_in? %>
+        <form class="search-form navbar-form navbar-left" method="get" id="searchform"
+              action="<%= search_index_path %>">
+          <div class="form-group">
+            <input class="form-control" type="text"
+              name="query" id="search" title="Search"
+              placeholder="何を探していますか"
+              autocomplete="off"/>
+          </div>
+          <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        </form>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "「旅行の場所」のレビューサイトについて", "/pages/about" %></li>
         <% if user_signed_in?  %>

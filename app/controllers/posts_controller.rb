@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :create, :edit, :update, :destroy]
 
   def show
+    @comments = @post.comments.page(params[:page]).per Settings.per_page
   end
 
   def new
