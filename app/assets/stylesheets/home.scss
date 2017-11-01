@@ -122,6 +122,10 @@ body .wrapper{
     img {
       border-radius: 3px;
     }
+
+    .profile-photo-sm {
+      border-radius: 100%;
+    }
   }
 
   .js-masonry .col-sm-4{
@@ -156,4 +160,8 @@ body .wrapper{
   p {
     font-size: 40px;
   }
+}
+
+.profile-photo-sm {
+  border-radius: 100%;
 }

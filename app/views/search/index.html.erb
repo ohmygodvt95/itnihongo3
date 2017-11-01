@@ -1,31 +1,17 @@
-<div class="container-fluid hero" style="background-image: url(<%= asset_path "hero.jpg" %>)">
-  <h1 class="text-center">旅行の場所」のレビューサイト</h1>
-  <div id="namer">
-    <div id="namer-input">
-      <form class="" method="get" id="searchform"
-            action="<%= search_index_path %>">
-        <input type="text" name="query" placeholder="Type your search">
-      </form>
-
-    </div>
-  </div>
-</div>
-
-<div class="container wrapper">
+<br>
+<div class="container">
   <div class="row">
     <%= render "home/left" %>
-    <div class="col-sm-9">
-      <div class="row">
-        <div class="col-sm-12">
-          <h3>あなたは何を考えていますか？ <a href="<%= new_post_path %>" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i>新しいレビュー</a></h3>
-        </div>
-      </div>
-      <div class="row">
-        <hr>
-
+    <div class="col-sm-7">
+      <h3 class="text-center">検索結果</h3>
+      <hr>
+      <% if @posts.size == 0 %>
+        <h1 class="text-center">No result</h1>
+      <% end %>
+      <div class="media">
         <div class="row js-masonry" data-masonry='{ "itemSelector": ".grid-item", "percentPosition": true }'>
           <% @posts.each do |post| %>
-            <div class="grid-item col-md-4 col-sm-4">
+            <div class="grid-item col-md-6 col-sm-6">
               <div class="media-grid">
                 <%= link_to post do %>
                   <div class="img-wrapper">
@@ -34,9 +20,7 @@
                   </div>
                 <% end %>
                 <div class="media-info">
-                  <div class="reaction">
-                    <span class="pull-right" style="padding-top: 5px"><%= time_ago_in_words(post.created_at) %> ago</span>
-                  </div>
+
                   <div class="user-info">
                     <img src="<%= post.user.avatar.thumb.url %>" alt=""
                          class="profile-photo-sm pull-left"/>
@@ -44,10 +28,7 @@
                       <h6>
                         <%= link_to post.user.name, post.user, class: "profile-link" %>
                       </h6>
-
                     </div>
-                    <hr>
-                    <p><%= post.content %></p>
                   </div>
                 </div>
               </div>

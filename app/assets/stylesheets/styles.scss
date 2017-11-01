@@ -61,15 +61,6 @@ body{
   Typography
   ==================================================*/
 
-@font-face {
-  font-family:"Agency FB";
-  src: url("../fonts/agency-fb.eot") /* EOT file for IE */
-}
-@font-face {
-  font-family:"Agency FB";
-  src: url("../fonts/agency-fb.ttf") /* TTF file for CSS3 browsers */
-}
-
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i");
 
 h2, h3, h4, h5, h6{color: #27aae1;}
@@ -1394,8 +1385,8 @@ ul.online-users li span.online-dot{
 }
 
 .media .media-grid .media-info{
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: #E9EBEE;
 }
 
