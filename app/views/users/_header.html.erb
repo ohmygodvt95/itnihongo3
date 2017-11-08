@@ -10,13 +10,39 @@
       <ul class="list-inline profile-menu">
         <li><a href="<%= user_path @user %>" ><%= @user.name %></a></li>
         <li><%= link_to "タイムライン", @user, class: "active" %></li>
-        <li><a href="timeline-about.html">私について</a></li>
+        <li>
+          <%= link_to user_followers_path(@user) do %>
+            <%= @user.followers.count %> 人がフォロー中
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_following_index_path(@user) do %>
+            <%= @user.following.count %> Following
+          <% end %>
+        </li>
+        <% if user_signed_in? %>
+            <% if current_user.id != @user.id %>
+              <li id="follow_form">
+                <% unless current_user.following? @user %>
+                  <%= form_for current_user.active_relationships.build do |f| %>
+                    <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                    <%= f.submit "フォロー", class: "btn btn-primary btn-block" %>
+                  <% end %>
+                <% else %>
+                  <%= form_for current_user.active_relationships.find_by(followed_id: @user.id),
+                               html: { method: :delete } do |f| %>
+                    <%= f.submit "アンフォロー", class: "btn btn-danger btn-block" %>
+                  <% end %>
+
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
       </ul>
     </div>
   </div>
-</div><!--Timeline Menu for Large Screens End-->
+</div>
 
-<!--Timeline Menu for Small Screens-->
 <div class="navbar-mobile hidden-lg hidden-md">
   <div class="profile-info">
     <img src="<%= @user.avatar.thumb.url %>" alt="" class="img-responsive profile-photo" />

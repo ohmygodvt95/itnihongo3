@@ -7,6 +7,9 @@
         <%= link_to current_user.name, current_user, class: "text-white" %>
       </h5>
       <h5 class="text-white"><%= current_user.posts.size %> posts</h5>
+      <%= link_to user_followers_path(current_user), class: "text-white" do %>
+        <b><%= current_user.followers.count %> </b>  人がフォロー中
+      <% end %>
     </div><!--profile card ends-->
     <ul class="nav-news-feed">
       <li><i class="fa fa-newspaper-o"></i>
@@ -14,6 +17,9 @@
       </li>
       <li><i class="fa fa fa-clock-o"></i>
         <div><%= link_to "タイムライン", current_user %></div>
+      </li>
+      <li><i class="fa fa fa-picture-o"></i>
+        <div><%= link_to "ニュースフィード", newsfeed_index_path %></div>
       </li>
     </ul>
   </div>
