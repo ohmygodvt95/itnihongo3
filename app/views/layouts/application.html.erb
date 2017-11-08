@@ -4,6 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <META HTTP-EQUIV="Content-Language" CONTENT="vi">
+    <META NAME="description" CONTENT="旅行の場所のレビューサイト">
+    <meta name="copyright" content="Copyright LengKeng">
+    <META NAME="keywords" CONTENT="hedspi, japanese, itnihongo, 旅行の場所」のレビューサイト, 旅行の場所, のレビューサイト">
+    <link rel="icon" type="image/png" href="<%= image_path "star-on.png" %>">
+    <meta property="og:url" content="<%= request.url %>" />
+    <meta property="og:type"  content="article" />
+    <meta property="og:title" content="<%= yield(:title) %>" />
+    <meta property="og:description" content="<%= full_title yield(:title) %>" />
+    <meta property="og:image" content="<%= image_path "cover.jpg" %>" />
     <title><%= full_title yield(:title) %></title>
     <%= csrf_meta_tags %>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

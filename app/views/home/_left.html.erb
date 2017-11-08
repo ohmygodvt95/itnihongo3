@@ -6,7 +6,7 @@
       <h5>
         <%= link_to current_user.name, current_user, class: "text-white" %>
       </h5>
-      <h5 class="text-white"><%= current_user.posts.size %> posts</h5>
+      <h5 class="text-white"><%= current_user.posts.size %> レビュー</h5>
       <%= link_to user_followers_path(current_user), class: "text-white" do %>
         <b><%= current_user.followers.count %> </b>  人がフォロー中
       <% end %>
