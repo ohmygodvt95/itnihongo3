@@ -81,13 +81,11 @@
               </div>
 
               <div class="actions">
-                <%= f.submit "アップデイト", class: "btn btn-success btn-block" %>
+                <%= f.submit "アップデート", class: "btn btn-success btn-block" %>
               </div>
             <% end %>
-
-            <h3>アカウントをキャンセルする</h3>
-
-            <p>不幸？ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "本気ですか？" }, method: :delete, class: "btn btn-danger btn-block" %></p>
+            <h3>不幸？</h3>
+            <p> <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本気ですか？" }, method: :delete, class: "btn btn-danger btn-block" %></p>
 
             <%= link_to "Back", :back %>
           </div>
