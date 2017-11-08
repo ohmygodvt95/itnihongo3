@@ -16,4 +16,6 @@
 //= require propellerkit/dist/js/propeller.min
 //= require masonry-layout/dist/masonry.pkgd.min
 //= require toastr
+//= require jquery.raty
+//= require ratyrate
 //= require_self

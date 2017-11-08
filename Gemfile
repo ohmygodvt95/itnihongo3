@@ -25,6 +25,7 @@ gem "mini_magick", "3.8.0"
 gem "rails_param"
 gem "toastr-rails"
 gem "ransack"
+gem "ratyrate"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

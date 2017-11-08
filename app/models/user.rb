@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :comments
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cover, CoverUploader
+
+  ratyrate_rater
 end
