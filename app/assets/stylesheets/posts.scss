@@ -1,3 +1,14 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.rate {
+  > div {
+    margin: 0 auto;
+    height: 50px!important;
+    width: 50px!important;
+    background-size: cover;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+
+.reaction {
+  top: -30px!important;
+}

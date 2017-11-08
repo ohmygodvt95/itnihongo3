@@ -34,20 +34,27 @@
                   </div>
                 <% end %>
                 <div class="media-info">
-                  <div class="reaction">
-                    <span class="pull-right" style="padding-top: 5px"><%= time_ago_in_words(post.created_at) %> ago</span>
+                  <div class="reaction pull-right">
+                    <div class="rate">
+                      <% if post.rating_averages.with_dimension(:favorite).present? %>
+                        <div style="background-image: url(<%= image_path "big-star.png" %>);">
+                          <%= post.rating_averages.with_dimension(:favorite).avg %>
+                        </div>
+                      <% end %>
+                    </div>
                   </div>
-                  <div class="user-info">
+                  <div class="user-info" style="margin-top: 5px">
                     <img src="<%= post.user.avatar.thumb.url %>" alt=""
-                         class="profile-photo-sm pull-left"/>
+                         class="profile-photo-sm pull-left" style="box-shadow: 0 0 1px black; margin-right: 5px"/>
                     <div class="user">
-                      <h6>
+                      <h6 style="margin-top: 5px">
                         <%= link_to post.user.name, post.user, class: "profile-link" %>
                       </h6>
 
                     </div>
                     <hr>
-                    <p><%= post.content %></p>
+                    <p><%= post.content.truncate_words 35 %></p>
+                    <span class="text-success"><i class="fa fa-clock-o fa-fw"></i><%= time_ago_in_words(post.created_at) %> ago</span>
                   </div>
                 </div>
               </div>

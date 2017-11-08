@@ -35,7 +35,14 @@
                       <h5><%= link_to post.user.name, post.user, class: "profile-link" %></h5>
                       <p class="text-muted">写真を公開しました</p>
                     </div>
-                    <div class="reaction">
+                    <div class="reaction timeline">
+                      <div class="rate" id="rate-wrapper">
+                        <% if post.rating_averages.with_dimension(:favorite).present? %>
+                          <div style="background-image: url(<%= image_path "big-star.png" %>)" id="rate">
+                            <%= post.rating_averages.with_dimension(:favorite).avg %>
+                          </div>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
                 </div>
