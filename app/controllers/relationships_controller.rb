@@ -5,13 +5,13 @@ class RelationshipsController < ApplicationController
 
   def create
     current_user.follow @user
-    flash[:success] = "You are follow #{@user.name}"
+    flash[:success] = "あなたは #{@user.name} に従っています"
     redirect_to @user
   end
 
   def destroy
     current_user.unfollow @user
-    flash[:success] = "You are unfollow #{@user.name}"
+    flash[:success] = "あなたは#{@user.name}のフォローされていません"
     redirect_to @user
   end
 

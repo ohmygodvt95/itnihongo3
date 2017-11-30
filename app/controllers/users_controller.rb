@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by id: params[:id]
     unless @user
-      flash[:warning] = "User not found!"
+      flash[:warning] = "ユーザーが見つかりません！"
       redirect_to root_path
     end
   end

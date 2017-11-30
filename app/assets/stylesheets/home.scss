@@ -109,14 +109,20 @@
   padding: 0!important;
 }
 
+#wrapper {
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
 body .wrapper{
   padding-top: 50px;
 
+
   .media-grid {
     margin-bottom: 20px;
-    border: 1px solid #F8F8F8;
+    border: 1px solid #E9EBEE;
     border-radius: 5px;
-    background-color: #F8F8F8;
+    background-color: #E9EBEE;
     padding: 5px;
 
     img {
@@ -145,10 +151,10 @@ body .wrapper{
 
 #landing {
   height: calc(100vh - 100px);
-  background-image: url("http://photo.foter.com/photos/398/calming-icelandic-water.jpg");
+  background-image: url("http://bestanimations.com/Nature/clouds-floating-over-himalaya-mountains-animated-gif.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  color: #BBD633;
+  color: #000000;
   text-shadow: 0 0 15px #fff;
 
   h1 {
@@ -168,4 +174,10 @@ body .wrapper{
 
 .user {
   padding-top: 10px;
+}
+
+.about {
+  img {
+    width: 100%;
+  }
 }

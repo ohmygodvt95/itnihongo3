@@ -13,10 +13,10 @@ class PostsController < ApplicationController
   def create
     post = current_user.posts.new post_params
     if post.save
-      flash[:success] = "Create new post successfully"
+      flash[:success] = "新しい投稿を作成しました"
       redirect_to root_path
     else
-      flash[:success] = "Create new post error"
+      flash[:success] = "エラー"
       redirect_to new_post_path
     end
   end
@@ -26,20 +26,20 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes post_params
-      flash[:success] = "Updated"
+      flash[:success] = "更新しました"
       redirect_to @post
     else
-      flash[:danger] = "Error"
+      flash[:danger] = "エラー"
       redirect_to edit_post_path(@post)
     end
   end
 
   def destroy
     if @post.destroy
-      flash[:success] = "Deleted"
+      flash[:success] = "削除された"
       redirect_to root_path
     else
-      flash[:danger] = "Error"
+      flash[:danger] = "エラー"
       redirect_to @post
     end
   end
