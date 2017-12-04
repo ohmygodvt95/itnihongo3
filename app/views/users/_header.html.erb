@@ -9,7 +9,7 @@
     <div class="col-md-9">
       <ul class="list-inline profile-menu">
         <li><a href="<%= user_path @user %>" ><%= @user.name %></a></li>
-        <li><%= link_to "タイムライン", @user, class: "active" %></li>
+        <li><%= link_to "タイムライン", @user %></li>
         <li>
           <%= link_to user_followers_path(@user) do %>
             <%= @user.followers.count %> 人がフォロー中
@@ -17,7 +17,7 @@
         </li>
         <li>
           <%= link_to user_following_index_path(@user) do %>
-            <%= @user.following.count %> Following
+            <%= @user.following.count %> 人のフォローしている
           <% end %>
         </li>
         <% if user_signed_in? %>

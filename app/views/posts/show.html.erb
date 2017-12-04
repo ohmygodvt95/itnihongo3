@@ -30,6 +30,53 @@
               <h5>
                 <%= link_to @post.user.name, "#", class: "profile-link" %></h5>
               <p class="text-muted"><%= time_ago_in_words(@post.created_at) %> ago 写真を公開しました</p>
+              <p>
+                <a href="#" data-toggle="modal" data-target="#exampleModal"><%= @post.rates("favorite").all.count %>人が好きです</a>
+                <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">レート統計</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <hr>
+                          <p>5 <img alt="1" src="<%= image_path "star-on.png" %>" title="bad">
+                            <%= @post.rates("favorite").where(stars: 5).count %>人が好きです
+                          </p>
+                          <p>4 <img alt="1" src="<%= image_path "star-on.png" %>" title="bad">
+                            <%= @post.rates("favorite").where(stars: 4).count %>人が好きです
+                          </p>
+                          <p>3 <img alt="1" src="<%= image_path "star-on.png" %>" title="bad">
+                            <%= @post.rates("favorite").where(stars: 3).count %>人が好きです
+                          </p>
+                          <p>2 <img alt="1" src="<%= image_path "star-on.png" %>" title="bad">
+                            <%= @post.rates("favorite").where(stars: 2).count %>人が好きです
+                          </p>
+                          <p>1 <img alt="1" src="<%= image_path "star-on.png" %>" title="bad">
+                            <%= @post.rates("favorite").where(stars: 1).count %>人が好きです
+                          </p>
+                        </div>
+                        <div class="col-sm-7">
+                          <hr>
+                          <% @post.rates("favorite").order(id: :desc).each do |rate| %>
+                            <%= rate.stars %> <img alt="1" src="<%= image_path "star-on.png" %>" title="bad">
+                            <%= link_to rate.rater.name, rate.rater %>
+                            in <%= time_ago_in_words rate.updated_at %> ago
+                            <hr>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">クローズ</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </p>
               <p class="text-muted"><i class="fa fa-map-marker"></i> <%= @post.address %></p>
             </div>
             <div class="reaction">
@@ -41,7 +88,7 @@
                 <% end %>
               </div>
               <% if user_signed_in? %>
-                Rate: <%= rating_for @post, "favorite", disable_after_rate: false %>
+                レート: <%= rating_for @post, "favorite", disable_after_rate: false %>
               <% end %>
             </div>
             <div class="line-divider"></div>
